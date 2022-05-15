@@ -38,8 +38,7 @@ pages/connection
 * Visit your localhost, if running on your localhost :
 127.0.0.1/ventools
 
-* Step-by-step bullets
-Login using these credentials, 
+* Login using these credentials, 
 ```
 Username : admin_ven
 Password : admin
