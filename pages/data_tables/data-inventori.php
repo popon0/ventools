@@ -13,7 +13,7 @@ $sql =
     "SELECT item_id, item_name, item_type, item_category, item_quantity, item_price";
 $sql .= " FROM items";
 ($query = mysqli_query($conn, $sql)) or
-    die("ajax-data-master.php: get Part No");
+    die("data-inventori.php: get Part No");
 $totalData = mysqli_num_rows($query);
 $totalFiltered = $totalData;
 if (!empty($requestData["search"]["value"])) {
@@ -29,7 +29,7 @@ if (!empty($requestData["search"]["value"])) {
         " OR item_quantity LIKE '" . $requestData["search"]["value"] . "%' ";
     $sql .= " OR item_price LIKE '" . $requestData["search"]["value"] . "%' ";
     ($query = mysqli_query($conn, $sql)) or
-        die("ajax-data-master.php: get Part No");
+        die("data-inventori.php: get Part No");
     $totalFiltered = mysqli_num_rows($query);
     $sql .=
         " ORDER BY " .
@@ -42,7 +42,7 @@ if (!empty($requestData["search"]["value"])) {
         $requestData["length"] .
         "   ";
     ($query = mysqli_query($conn, $sql)) or
-        die("ajax-data-master.php: get Part No");
+        die("data-inventori.php: get Part No");
 } else {
     $sql =
         "SELECT item_id, item_name, item_type, item_category, item_quantity, item_price";
@@ -58,7 +58,7 @@ if (!empty($requestData["search"]["value"])) {
         $requestData["length"] .
         "   ";
     ($query = mysqli_query($conn, $sql)) or
-        die("ajax-data-master.php: get Part No");
+        die("data-inventori.php: get Part No");
 }
 $data = [];
 while ($row = mysqli_fetch_array($query)) {
@@ -84,7 +84,7 @@ while ($row = mysqli_fetch_array($query)) {
     } elseif ($_SESSION["user_level"] == "user") {
        $nestedData[] =
             '<td><center>
-		<a href="detail-inventory.php?id=' .
+		<a href="#' .
             $row["item_id"] .
             '"  data-toggle="tooltip" title="feature-coming-soon" class="#"> <i class="#"></i> </a>
 		</center></td>';
