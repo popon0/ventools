@@ -16,11 +16,12 @@
                                                 <th>ID</th>
                                                 <th>Tanggal</th>
                                                 <th>Lokasi</th>
+                                                <th>ID Produk</th>
                                                 <th>Nama Produk</th>
-                                                <th>Qty</th>
+                                                <th>Kuantitas</th>
                                                 <th>Status</th>
                                                 <th>Note</th>
-                                                <th>Entry</th>
+                                                <th>User</th>
                                                 <th class="text-center">Action</th>
                                             </tr>
                                         </thead>
