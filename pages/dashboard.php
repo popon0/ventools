@@ -5,22 +5,7 @@
 <body id="page-top">
     <div id="wrapper"> <?php include "menu.php"; ?> <div id="content-wrapper" class="d-flex flex-column">
             <div id="content"> <?php include "navbar.php"; ?> <div class="container-fluid">
-                    <h1 class="h2 mb-2 text-gray-800">Home</h1> <?php
-             if(isset($_GET['aksi']) == 'delete'){
-				$id = $_GET['user_id'];
-				$cek = mysqli_query($conn, "SELECT * FROM users WHERE user_id='$id'");
-				if(mysqli_num_rows($cek) == 0){
-					echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data tidak ditemukan.</div>';
-				}else{
-					$delete = mysqli_query($conn, "DELETE FROM users WHERE user_id='$id'");
-					if($delete){
-						echo '<div class="alert alert-primary alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data berhasil dihapus.</div>';
-					}else{
-						echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data gagal dihapus.</div>';
-					}
-				}
-			}
-			?> <br><br>
+                    <h1 class="h2 mb-2 text-gray-800">Home</h1> <br><br>
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Riwayat Transaksi</h6>
