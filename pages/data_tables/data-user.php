@@ -8,7 +8,7 @@ $columns = [
 ];
 $sql = "SELECT user_id, user_name, user_password, user_fullname, user_level";
 $sql .= " FROM users";
-($query = mysqli_query($conn, $sql)) or die("ajax-data-user.php: get User");
+($query = mysqli_query($conn, $sql)) or die("data-user.php: get User");
 $totalData = mysqli_num_rows($query);
 $totalFiltered = $totalData;
 if (!empty($requestData["search"]["value"])) {
@@ -22,7 +22,7 @@ if (!empty($requestData["search"]["value"])) {
     $sql .=
         " OR user_fullname LIKE '" . $requestData["search"]["value"] . "%' ";
     $sql .= " OR user_level LIKE '" . $requestData["search"]["value"] . "%' ";
-    ($query = mysqli_query($conn, $sql)) or die("ajax-data-user.php: get User");
+    ($query = mysqli_query($conn, $sql)) or die("data-user.php: get User");
     $totalFiltered = mysqli_num_rows($query);
     $sql .=
         " ORDER BY " .
@@ -34,7 +34,7 @@ if (!empty($requestData["search"]["value"])) {
         " ," .
         $requestData["length"] .
         "   ";
-    ($query = mysqli_query($conn, $sql)) or die("ajax-data-user.php: get User");
+    ($query = mysqli_query($conn, $sql)) or die("data-user.php: get User");
 } else {
     $sql =
         "SELECT user_id, user_name, user_password, user_fullname, user_level";
@@ -49,7 +49,7 @@ if (!empty($requestData["search"]["value"])) {
         " ," .
         $requestData["length"] .
         "   ";
-    ($query = mysqli_query($conn, $sql)) or die("ajax-data-user.php: get User");
+    ($query = mysqli_query($conn, $sql)) or die("data-user.php: get User");
 }
 $data = [];
 while ($row = mysqli_fetch_array($query)) {
