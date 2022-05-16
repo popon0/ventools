@@ -15,7 +15,7 @@ $columns = [
 $sql =
     "SELECT tr_id, tr_date, item_location, item_id, item_name, item_quantity, item_status, item_note, tr_user";
 $sql .= " FROM transaction";
-($query = mysqli_query($conn, $sql)) or die("ajax-data-transaksi.php: get id");
+($query = mysqli_query($conn, $sql)) or die("data-transaksi.php: get id");
 $totalData = mysqli_num_rows($query);
 $totalFiltered = $totalData;
 if (!empty($requestData["search"]["value"])) {
@@ -34,7 +34,7 @@ if (!empty($requestData["search"]["value"])) {
     $sql .= " OR item_note LIKE '" . $requestData["search"]["value"] . "%' ";
     $sql .= " OR tr_user LIKE '" . $requestData["search"]["value"] . "%' ";
     ($query = mysqli_query($conn, $sql)) or
-        die("ajax-data-transaksi.php: get id");
+        die("data-transaksi.php: get id");
     $totalFiltered = mysqli_num_rows($query);
     $sql .=
         " ORDER BY " .
@@ -47,7 +47,7 @@ if (!empty($requestData["search"]["value"])) {
         $requestData["length"] .
         "   ";
     ($query = mysqli_query($conn, $sql)) or
-        die("ajax-data-transaksi.php: get id");
+        die("data-transaksi.php: get id");
 } else {
     $sql =
         "SELECT tr_id, tr_date, item_location, item_id, item_name, item_quantity, item_status, item_note, tr_user";
@@ -63,7 +63,7 @@ if (!empty($requestData["search"]["value"])) {
         $requestData["length"] .
         "   ";
     ($query = mysqli_query($conn, $sql)) or
-        die("ajax-data-transaksi.php: get id");
+        die("data-transaksi.php: get id");
 }
 $data = [];
 while ($row = mysqli_fetch_array($query)) {
